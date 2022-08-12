@@ -226,9 +226,27 @@ class _HomePageState extends State<HomePage> {
                       Expanded(
                         child: ListView(
                           children: const [
-                            ExerciseTile(),
-                            ExerciseTile(),
-                            ExerciseTile(),
+                            ExerciseTile(
+                              icon: Icons.favorite,
+                              exerciseName: 'Speaking Skills',
+                              numberOfExercises: 16,
+                              color: Colors.orange,
+                            ),
+
+                            ExerciseTile(
+                              icon: Icons.person,
+                              exerciseName: 'Reading Skills',
+                              numberOfExercises: 8,
+                              color: Colors.blue,
+                            ),
+
+                            ExerciseTile(
+                              icon: Icons.star,
+                              exerciseName: 'Writing Skills',
+                              numberOfExercises: 20,
+                              color: Colors.yellow,
+                            ),
+
                           ],
                         ),
                       ),

@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
 
 class ExerciseTile extends StatelessWidget {
-  const ExerciseTile({Key? key}) : super(key: key);
+  final IconData icon;
+  final String exerciseName;
+  final int numberOfExercises;
+  final dynamic color;
 
+  const ExerciseTile({
+    Key? key,
+    required this.icon,
+    required this.exerciseName,
+    required this.numberOfExercises,
+    required this.color,
+  }) : super(key: key);
+
+// list view of exercises
   @override
   Widget build(BuildContext context) {
-    return // list view of exercises
-      Container(
-        padding: EdgeInsets.all(16),
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12.0),
+      child: Container(
+        padding: const EdgeInsets.all(16.0),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
@@ -21,9 +34,9 @@ class ExerciseTile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   child: Container(
                     padding: const EdgeInsets.all(16.0),
-                    color: Colors.orange,
-                    child: const Icon(
-                      Icons.favorite,
+                    color: color,
+                    child: Icon(
+                      icon,
                       color: Colors.white,
                     ),
                   ),
@@ -33,18 +46,18 @@ class ExerciseTile extends StatelessWidget {
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     // title
                     Text(
-                      'Speaking Skills',
-                      style: TextStyle(
+                      exerciseName,
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
-                      '16 Exercises',
-                      style: TextStyle(
+                      '${numberOfExercises}Exercises',
+                      style: const TextStyle(
                           color: Colors.grey,
                           fontSize: 14,
                           fontWeight: FontWeight.bold),
@@ -56,6 +69,7 @@ class ExerciseTile extends StatelessWidget {
             const Icon(Icons.more_horiz),
           ],
         ),
-      );
+      ),
+    );
   }
 }
